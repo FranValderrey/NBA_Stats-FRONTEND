@@ -1,4 +1,4 @@
-# NBA_Stats BACKEND
+# NBA_Stats FRONTEND
 
 Sitio web donde consultar las estadísticas proporcionadas por nuestra base de datos
 
