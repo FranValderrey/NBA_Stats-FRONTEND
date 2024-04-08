@@ -1,0 +1,11 @@
+.team-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-logos img {
+  width: 100px; /* Tamaño deseado para los logos */
+  height: 100px; /* Tamaño deseado para los logos */
+  margin: 10px; /* Espacio entre los logos */
+}
