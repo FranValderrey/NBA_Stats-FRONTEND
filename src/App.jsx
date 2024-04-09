@@ -15,11 +15,11 @@ function App() {
     <main>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/:team" element={<TeamPage />}></Route>
-        <Route path="/:team/:season" element={<SeasonPage />}></Route>
-        <Route path="/:team/:season/:player" element={<PlayerPage />}></Route>
-        <Route path="*" element={<NotFoundPage />}></Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:team" element={<TeamPage />} />
+        <Route path="/:team/:season" element={<SeasonPage />} />
+        <Route path="/:team/:season/:player" element={<PlayerPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </main>
