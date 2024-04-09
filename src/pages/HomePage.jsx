@@ -1,4 +1,5 @@
 import useFetchTeams from "../hooks/useFetchTeams";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const { teams, loading, error } = useFetchTeams();
@@ -17,9 +18,9 @@ const HomePage = () => {
       <div className="team-logos">
         {teams.map((team) => (
           <div key={team.nombre}>
-            <a href={`http://localhost:8080/${team.nombre}`}>
+            <Link to={`/${team.nombre}`}>
               <img src={team.logo_url} alt={team.nombre} />
-            </a>
+            </Link>
           </div>
         ))}
       </div>
