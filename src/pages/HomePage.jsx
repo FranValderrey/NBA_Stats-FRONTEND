@@ -16,7 +16,11 @@ const HomePage = () => {
       <h1>HomePage</h1>
       <div className="team-logos">
         {teams.map((team) => (
-          <img key={team.nombre} src={team.logo_url} alt={team.nombre} />
+          <div key={team.nombre}>
+            <a href={`http://localhost:8080/${team.nombre}`}>
+              <img src={team.logo_url} alt={team.nombre} />
+            </a>
+          </div>
         ))}
       </div>
     </section>

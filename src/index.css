@@ -8,4 +8,11 @@
   width: 100px; /* Tamaño deseado para los logos */
   height: 100px; /* Tamaño deseado para los logos */
   margin: 10px; /* Espacio entre los logos */
+  transition: transform 0.3s ease;
+}
+
+.team-logos img:hover {
+  transform: scale(
+    1.1
+  ); /* Aumenta el tamaño al pasar el ratón sobre la imagen */
 }
