@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import PlayerPage from "./PlayerPage";
 
 const SeasonPage = ({ team, season, seasonStats }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+    setSelectedPlayer(null);
+  };
+
+  const handlePlayerSelect = (playerCode) => {
+    setSelectedPlayer(playerCode);
   };
 
   // Función para formatear la temporada correctamente
@@ -49,10 +56,18 @@ const SeasonPage = ({ team, season, seasonStats }) => {
               <h2>Jugadores</h2>
               <ul>
                 {seasonStats.jugadores.map((jugador) => (
-                  <li key={jugador.codigo}>{jugador.nombre_jugador}</li>
+                  <li
+                    key={jugador.codigo}
+                    onClick={() => handlePlayerSelect(jugador.codigo)}
+                  >
+                    {jugador.nombre_jugador}
+                  </li>
                 ))}
               </ul>
             </div>
+          )}
+          {selectedPlayer && (
+            <PlayerPage team={team} season={season} player={selectedPlayer} />
           )}
         </div>
       ) : (
