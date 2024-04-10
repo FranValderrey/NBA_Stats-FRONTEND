@@ -1,4 +1,3 @@
-// TeamPage.jsx
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchTeamInfo from "../hooks/useFetchTeamInfo";
@@ -9,7 +8,7 @@ const TeamPage = () => {
   const { team } = useParams();
   const teamInfo = useFetchTeamInfo(team);
   const [selectedSeason, setSelectedSeason] = useState("");
-  const seasonStats = useFetchSeasonStats(team, selectedSeason);
+  const { seasonStats, error } = useFetchSeasonStats(team, selectedSeason);
 
   const handleSeasonChange = (event) => {
     setSelectedSeason(event.target.value);
@@ -50,12 +49,17 @@ const TeamPage = () => {
               ))}
             </select>
           </div>
-          {selectedSeason && seasonStats && (
-            <SeasonPage
-              team={team}
-              season={selectedSeason}
-              seasonStats={seasonStats}
-            />
+          {error ? (
+            <div>{error}</div>
+          ) : (
+            selectedSeason &&
+            seasonStats && (
+              <SeasonPage
+                team={team}
+                season={selectedSeason}
+                seasonStats={seasonStats}
+              />
+            )
           )}
         </div>
       ) : (

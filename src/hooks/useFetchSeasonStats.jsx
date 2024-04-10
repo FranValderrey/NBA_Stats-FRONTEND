@@ -1,9 +1,8 @@
-// useFetchSeasonStats.jsx
-
 import { useEffect, useState } from "react";
 
 const useFetchSeasonStats = (team, selectedSeason) => {
   const [seasonStats, setSeasonStats] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTeamStats = async () => {
@@ -13,12 +12,18 @@ const useFetchSeasonStats = (team, selectedSeason) => {
             `${process.env.REACT_APP_BACKEND_URL}/${team}/${selectedSeason}`
           );
           if (!response.ok) {
-            throw new Error("Error fetching team statistics");
+            const errorMessage = await response.json(); // Parse JSON error response
+            throw new Error(
+              errorMessage.message || "Error fetching team statistics"
+            );
           }
           const data = await response.json();
           setSeasonStats(data);
+          setError(null); // Reset error state if successful response
         } catch (error) {
           console.error("Error fetching team statistics:", error);
+          setSeasonStats(null); // Reset seasonStats on error
+          setError(error.message);
         }
       }
     };
@@ -26,7 +31,7 @@ const useFetchSeasonStats = (team, selectedSeason) => {
     fetchTeamStats();
   }, [selectedSeason, team]);
 
-  return seasonStats;
+  return { seasonStats, error };
 };
 
 export default useFetchSeasonStats;
