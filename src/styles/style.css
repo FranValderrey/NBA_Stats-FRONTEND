@@ -1,71 +1,141 @@
-/* style.css (modificado) */
-body {
-  font: normal 0.8em "trebuchet ms", arial, sans-serif;
-}
+/* styles.css */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font: normal 175% "century gothic", arial, sans-serif;
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("./BebasNeue-Bold.ttf");
+  font-style: normal;
 }
-
-a,
-a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-ul#menu,
-ul#menu li {
-  float: left;
+/* Reset de estilos */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-ul#menu li a {
-  letter-spacing: 0.1em;
-  font: normal 100% arial, sans-serif;
-  display: block;
-  float: left;
-  height: 17px;
-  margin: 10px 0 0 10px;
-  padding: 9px 26px 6px 26px;
+/* Estilos para el cuerpo de la página */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Contenedor principal */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: #f7650a;
+  padding: 20px;
   text-align: center;
   color: #fff;
-  text-transform: uppercase;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  background: transparent;
 }
 
-ul#menu li a:hover,
-ul#menu li.selected a,
-ul#menu li.selected a:hover {
-  color: #fa057e;
-  background: #fff;
+.logo-svg {
+  width: 80px;
+  height: auto;
 }
 
-#site_content {
-  width: 854px;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 0 24px 20px;
-  background: #000;
+.logo-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.3rem;
+  margin-left: 1px;
+  color: #ffffff;
 }
 
-#footer {
-  width: 854px;
-  font: normal 100% "lucida sans unicode", arial, sans-serif;
-  padding: 24px 0 5px;
+/* Estilos para la sección principal */
+main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Estilos para la sección de logotipos de equipo */
+.team-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-logos img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.team-logos img:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para la información del equipo */
+.team-info {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.team-info-logo {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+.team-info p {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Estilos para la lista de opciones */
+.option-list {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.option-list li {
+  margin-bottom: 10px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.option-list li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #f7650a;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Estilos para el footer */
+footer {
+  background-color: #333;
+  padding: 20px;
   text-align: center;
-  background: transparent;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+/* Agregar cursor personalizado para elementos interactivos */
+.player-link {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Agregar una animación de escalado al hacer hover sobre el enlace del jugador */
+.player-link:hover {
+  transform: scale(1.011);
 }

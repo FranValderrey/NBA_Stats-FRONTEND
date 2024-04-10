@@ -41,7 +41,7 @@ const SeasonPage = ({ team, season, seasonStats }) => {
           {selectedOption === "partidos" && (
             <div>
               <h2>Partidos</h2>
-              <ul>
+              <ul className="option-list">
                 {seasonStats.partidos.map((partido) => (
                   <li key={partido.codigo}>
                     {partido.equipo_local} {partido.puntos_local} -{" "}
@@ -54,11 +54,12 @@ const SeasonPage = ({ team, season, seasonStats }) => {
           {selectedOption === "jugadores" && (
             <div>
               <h2>Jugadores</h2>
-              <ul>
+              <ul className="option-list">
                 {seasonStats.jugadores.map((jugador) => (
                   <li
                     key={jugador.codigo}
                     onClick={() => handlePlayerSelect(jugador.codigo)}
+                    className="player-link"
                   >
                     {jugador.nombre_jugador}
                   </li>

@@ -4,14 +4,12 @@ import useFetchPlayerStats from "../hooks/useFetchPlayerStats";
 const PlayerPage = ({ team, season, player }) => {
   const { playerStats, error } = useFetchPlayerStats(team, season, player);
 
-  console.log(playerStats);
-  console.log(error);
   return (
     <div>
       {playerStats ? (
         <div>
           <h1>Estadísticas de {playerStats[0].nombre_jugador}</h1>
-          <ul>
+          <ul className="option-list">
             <li>
               Puntos por partido: {playerStats[0].puntos_por_partido.toFixed(2)}
             </li>

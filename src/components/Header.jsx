@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <h1>
-        <Link to="/">NBA Stats</Link>
-      </h1>
+      <Link to="/" className="logo-link">
+        <img
+          src="https://raw.githubusercontent.com/jimniels/teamcolors/main/public/img/leagues/nba.svg"
+          alt="NBA Logo"
+          className="logo-svg"
+        />
+        <span className="logo-text">NBA Stats</span>
+      </Link>
     </header>
   );
 };
